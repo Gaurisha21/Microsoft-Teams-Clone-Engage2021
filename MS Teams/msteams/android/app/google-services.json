@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "418717398091",
+    "project_id": "ms-teams-clone-c061c",
+    "storage_bucket": "ms-teams-clone-c061c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:418717398091:android:26f5f90b4835d6638089ce",
+        "android_client_info": {
+          "package_name": "com.example.msteams"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "418717398091-5pagp5b9ddt1nv6igt8hl05samshd5nb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.msteams",
+            "certificate_hash": "2ac2baeb9b64f3bd79df6a7321a8709713636c17"
+          }
+        },
+        {
+          "client_id": "418717398091-bi8ghs757hjlmmi3eiop09cnl382ep5c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTPRxZYU90LtLZocffIHnkOoCIvquQ5hU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "418717398091-bi8ghs757hjlmmi3eiop09cnl382ep5c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
