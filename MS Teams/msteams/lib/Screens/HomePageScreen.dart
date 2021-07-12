@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'SignUpScreen.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -51,7 +50,8 @@ class _HomePageScreenState extends State<HomePageScreen> {
     _auth.signOut();
     final googleSignIn = GoogleSignIn();
     await googleSignIn.signOut();
-    SystemNavigator.pop();
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => SignUpScreen()));
   }
 
   @override

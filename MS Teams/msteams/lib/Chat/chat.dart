@@ -676,8 +676,10 @@ class ChatScreenState extends State<ChatScreen> {
   Widget buildLoading() {
     return Positioned(
       child: isLoading
-          ? CircularProgressIndicator(
-              color: Color.fromRGBO(99, 100, 167, 1),
+          ? Center(
+              child: CircularProgressIndicator(
+                color: Color.fromRGBO(99, 100, 167, 1),
+              ),
             )
           : Container(),
     );

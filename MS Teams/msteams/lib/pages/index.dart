@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:ffi';
 
 import 'package:agora_rtc_engine/rtc_engine.dart';
 import 'package:flutter/material.dart';
@@ -55,74 +56,87 @@ class IndexState extends State<IndexPage> {
       drawer: NavigationDrawerWidget(
         currentUserId: currentUserId,
       ),
-      body: Center(
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          height: height * 0.456,
-          child: Column(
-            children: <Widget>[
-              Row(
-                children: <Widget>[
-                  Expanded(
-                      child: TextField(
-                    controller: _channelController,
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.video_call_outlined),
-                      fillColor: Color.fromRGBO(99, 100, 167, 1),
-                      errorText:
-                          _validateError ? 'Channel name is mandatory' : null,
-                      border: UnderlineInputBorder(
-                        borderSide: BorderSide(width: 1),
-                      ),
-                      hintText: 'Channel name',
-                    ),
-                  ))
-                ],
-              ),
-              Column(
-                children: [
-                  ListTile(
-                    title: Text('Join Video Call'),
-                    leading: Radio(
-                      value: ClientRole.Broadcaster,
-                      groupValue: _role,
-                      onChanged: (ClientRole? value) {
-                        setState(() {
-                          _role = value;
-                        });
-                      },
-                    ),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 35),
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: height * 0.035,
+                ),
+                Container(
+                  child: Image.asset(
+                    'images/5.jpeg',
+                    height: height * 0.4,
+                    width: height * 0.4,
                   ),
-                  ListTile(
-                    title: Text('Join Live Stream'),
-                    leading: Radio(
-                      value: ClientRole.Audience,
-                      groupValue: _role,
-                      onChanged: (ClientRole? value) {
-                        setState(() {
-                          _role = value;
-                        });
-                      },
-                    ),
-                  )
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20),
-                child: Row(
+                ),
+                Row(
                   children: <Widget>[
                     Expanded(
-                      child: ElevatedButton(
-                        onPressed: onJoin,
-                        child: Text('Join'),
-                        style: ElevatedButton.styleFrom(
-                            primary: Color.fromRGBO(99, 100, 167, 1)),
+                        child: TextField(
+                      controller: _channelController,
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.video_call_outlined),
+                        fillColor: Color.fromRGBO(99, 100, 167, 1),
+                        errorText:
+                            _validateError ? 'Channel name is mandatory' : null,
+                        border: UnderlineInputBorder(
+                          borderSide: BorderSide(width: 1),
+                        ),
+                        hintText: 'Channel name',
                       ),
-                    ),
+                    ))
                   ],
                 ),
-              )
-            ],
+                Center(
+                  child: Column(
+                    children: [
+                      ListTile(
+                        title: Text('Join Video Call'),
+                        leading: Radio(
+                          value: ClientRole.Broadcaster,
+                          groupValue: _role,
+                          onChanged: (ClientRole? value) {
+                            setState(() {
+                              _role = value;
+                            });
+                          },
+                        ),
+                      ),
+                      ListTile(
+                        title: Text('Join Live Stream'),
+                        leading: Radio(
+                          value: ClientRole.Audience,
+                          groupValue: _role,
+                          onChanged: (ClientRole? value) {
+                            setState(() {
+                              _role = value;
+                            });
+                          },
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 20),
+                  child: Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: onJoin,
+                          child: Text('Join'),
+                          style: ElevatedButton.styleFrom(
+                              primary: Color.fromRGBO(99, 100, 167, 1)),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),

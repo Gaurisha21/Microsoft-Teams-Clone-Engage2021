@@ -1,13 +1,10 @@
 import 'dart:async';
-// import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:msteams/Screens/drawer.dart';
 import 'chat.dart';
 import 'user_chat.dart';
-// import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -23,8 +20,6 @@ class HomeScreenState extends State<HomeScreen> {
 
   final String currentUserId;
   final FirebaseMessaging firebaseMessaging = FirebaseMessaging.instance;
-  // final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-  //     FlutterLocalNotificationsPlugin();
   final ScrollController listScrollController = ScrollController();
 
   int _limit = 20;
@@ -44,9 +39,6 @@ class HomeScreenState extends State<HomeScreen> {
 
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       print('onMessage: $message');
-      // if (message.notification != null) {
-      //   showNotification(message.notification!);
-      // }
       return;
     });
 
@@ -61,14 +53,6 @@ class HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  // void configLocalNotification() {
-  //   AndroidInitializationSettings initializationSettingsAndroid =
-  //       AndroidInitializationSettings('mst');
-  //   InitializationSettings initializationSettings =
-  //       InitializationSettings(android: initializationSettingsAndroid);
-  //   flutterLocalNotificationsPlugin.initialize(initializationSettings);
-  // }
-
   void scrollListener() {
     if (listScrollController.offset >=
             listScrollController.position.maxScrollExtent &&
@@ -78,33 +62,6 @@ class HomeScreenState extends State<HomeScreen> {
       });
     }
   }
-
-  // void showNotification(RemoteNotification remoteNotification) async {
-  //   AndroidNotificationDetails androidPlatformChannelSpecifics =
-  //       AndroidNotificationDetails(
-  //     Platform.isAndroid
-  //         ? 'com.dfa.flutterchatdemo'
-  //         : 'com.duytq.flutterchatdemo',
-  //     'Flutter chat demo',
-  //     'your channel description',
-  //     playSound: true,
-  //     enableVibration: true,
-  //     importance: Importance.max,
-  //     priority: Priority.high,
-  //   );
-  //   NotificationDetails platformChannelSpecifics =
-  //       NotificationDetails(android: androidPlatformChannelSpecifics);
-
-  //   print(remoteNotification);
-
-  //   await flutterLocalNotificationsPlugin.show(
-  //     0,
-  //     remoteNotification.title,
-  //     remoteNotification.body,
-  //     platformChannelSpecifics,
-  //     payload: null,
-  //   );
-  // }
 
   Future<bool> onBackPress() {
     Navigator.pop(context);
