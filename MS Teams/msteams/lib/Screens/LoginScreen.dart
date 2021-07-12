@@ -32,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
             context,
             MaterialPageRoute(
                 builder: (context) => HomePageScreen(
-                    currentUserId: prefs!.getString('id') ?? "")));
+                    currentUserId: prefs?.getString('id') ?? "")));
       }
     });
   }

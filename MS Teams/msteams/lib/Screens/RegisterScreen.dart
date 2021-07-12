@@ -31,7 +31,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             context,
             MaterialPageRoute(
                 builder: (context) => HomePageScreen(
-                    currentUserId: prefs!.getString('id') ?? "")));
+                    currentUserId: prefs?.getString('id') ?? "")));
       }
     });
   }
@@ -117,7 +117,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         context,
         MaterialPageRoute(
             builder: (context) =>
-                HomePageScreen(currentUserId: prefs!.getString('id') ?? "")));
+                HomePageScreen(currentUserId: prefs?.getString('id') ?? "")));
   }
 
   showError(String? message) {

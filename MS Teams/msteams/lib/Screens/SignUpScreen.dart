@@ -176,7 +176,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   signInWithGoogle().whenComplete(() {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => HomePageScreen(
-                            currentUserId: prefs!.getString('id') ?? "")));
+                            currentUserId: prefs?.getString('id') ?? "")));
                   });
                 }),
               ],

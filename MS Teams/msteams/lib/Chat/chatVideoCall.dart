@@ -9,7 +9,7 @@ var height, width;
 
 const APP_ID = "a61fadf6956d4968adaad0d7f6eafe52";
 const Token =
-    "0064289868d918343418fa04193fa0e0ac9IADCl37b+MG/1Jcq0Y5dORDbLE/a7zvTzg+0NzW1aYf5ak0sVPcAAAAAEABsKo0toWfpYAEAAQChZ+lg";
+    "0064289868d918343418fa04193fa0e0ac9IADfaNeDdQuilFgWMIRrW3H3x2GT2Odk2fCeuytnR0ovgU0sVPcAAAAAEAAPHFzYnZDsYAEAAQCYkOxg";
 
 class CallPage extends StatefulWidget {
   /// non-modifiable channel name of the page

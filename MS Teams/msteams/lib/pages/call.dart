@@ -1,9 +1,11 @@
 import 'dart:async';
+// import 'dart:convert';
 
 import 'package:agora_rtc_engine/rtc_engine.dart';
 import 'package:agora_rtc_engine/rtc_local_view.dart' as RtcLocalView;
 import 'package:agora_rtc_engine/rtc_remote_view.dart' as RtcRemoteView;
 import 'package:flutter/material.dart';
+// import 'package:http/http.dart' as http;
 
 import '../utils/settings.dart';
 
@@ -11,13 +13,14 @@ var height, width;
 
 class CallPage extends StatefulWidget {
   /// non-modifiable channel name of the page
-  final String? channelName;
+  final String channelName;
 
   /// non-modifiable client role of the page
   final ClientRole? role;
 
   /// Creates a call page with given channel name.
-  const CallPage({Key? key, this.channelName, this.role}) : super(key: key);
+  const CallPage({Key? key, required this.channelName, this.role})
+      : super(key: key);
 
   @override
   _CallPageState createState() => _CallPageState();
@@ -65,9 +68,7 @@ class _CallPageState extends State<CallPage> {
     VideoEncoderConfiguration configuration = VideoEncoderConfiguration();
     configuration.dimensions = VideoDimensions(1920, 1080);
     await _engine.setVideoEncoderConfiguration(configuration);
-    // ignore: unnecessary_null_comparison
-    await _engine.renewToken(Token);
-    await _engine.joinChannel(Token, widget.channelName!, null, 0);
+    await _engine.joinChannel(null, widget.channelName, null, 0);
   }
 
   /// Create agora sdk instance and initialize
@@ -78,7 +79,7 @@ class _CallPageState extends State<CallPage> {
     await _engine.setClientRole(widget.role!);
   }
 
-  /// Add agora event handlers
+  // Add agora event handlers
   void _addAgoraEventHandlers() {
     _engine.setEventHandler(RtcEngineEventHandler(error: (code) {
       setState(() {
