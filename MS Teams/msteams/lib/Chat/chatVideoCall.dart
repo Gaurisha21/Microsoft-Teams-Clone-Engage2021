@@ -4,12 +4,13 @@ import 'package:agora_rtc_engine/rtc_engine.dart';
 import 'package:agora_rtc_engine/rtc_local_view.dart' as RtcLocalView;
 import 'package:agora_rtc_engine/rtc_remote_view.dart' as RtcRemoteView;
 import 'package:flutter/material.dart';
+import 'package:msteams/Chat/chatroom.dart';
 
 var height, width;
 
 const APP_ID = "a61fadf6956d4968adaad0d7f6eafe52";
 const Token =
-    "0064289868d918343418fa04193fa0e0ac9IADfaNeDdQuilFgWMIRrW3H3x2GT2Odk2fCeuytnR0ovgU0sVPcAAAAAEAAPHFzYnZDsYAEAAQCYkOxg";
+    "0064289868d918343418fa04193fa0e0ac9IACt9yZSmFanDhGUNS/Wy0reWqUqbUwPYgLdBWNojt7p6U0sVPcAAAAAEAC4541oMAfuYAEAAQAvB+5g";
 
 class CallPage extends StatefulWidget {
   /// non-modifiable channel name of the page
@@ -18,8 +19,20 @@ class CallPage extends StatefulWidget {
   /// non-modifiable client role of the page
   final ClientRole? role = ClientRole.Broadcaster;
 
+  final String peerId;
+  final String peerAvatar;
+  final String peerName;
+
+  CallPage(
+      {Key? key,
+      required this.peerId,
+      required this.peerAvatar,
+      required this.peerName})
+      : super(key: key);
+
   @override
-  _CallPageState createState() => _CallPageState();
+  _CallPageState createState() => _CallPageState(
+      peerId: peerId, peerAvatar: peerAvatar, peerName: peerName);
 }
 
 class _CallPageState extends State<CallPage> {
@@ -28,6 +41,13 @@ class _CallPageState extends State<CallPage> {
   bool muted = false;
   bool disCam = true;
   late RtcEngine _engine;
+
+  final String peerId;
+  final String peerAvatar;
+  final String peerName;
+
+  _CallPageState(
+      {required this.peerId, required this.peerAvatar, required this.peerName});
 
   @override
   void dispose() {
@@ -241,6 +261,21 @@ class _CallPageState extends State<CallPage> {
           Expanded(
             flex: 1,
             child: RawMaterialButton(
+              onPressed: () => _onCallEnd(context),
+              child: Icon(
+                Icons.call_end,
+                color: Colors.white,
+                size: 25.0,
+              ),
+              shape: CircleBorder(),
+              elevation: 2.0,
+              fillColor: Colors.redAccent,
+              padding: const EdgeInsets.all(8.0),
+            ),
+          ),
+          Expanded(
+            flex: 1,
+            child: RawMaterialButton(
               onPressed: _onDisableCam,
               child: Icon(
                 disCam ? Icons.videocam_rounded : Icons.videocam_off_rounded,
@@ -257,15 +292,15 @@ class _CallPageState extends State<CallPage> {
           Expanded(
             flex: 1,
             child: RawMaterialButton(
-              onPressed: () => _onCallEnd(context),
+              onPressed: _onChat,
               child: Icon(
-                Icons.call_end,
+                Icons.chat,
                 color: Colors.white,
                 size: 25.0,
               ),
               shape: CircleBorder(),
               elevation: 2.0,
-              fillColor: Colors.redAccent,
+              fillColor: Color.fromRGBO(99, 100, 167, 1),
               padding: const EdgeInsets.all(8.0),
             ),
           ),
@@ -290,6 +325,14 @@ class _CallPageState extends State<CallPage> {
       disCam = !disCam;
     });
     _engine.enableLocalVideo(disCam);
+  }
+
+  void _onChat() {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => ChatRoom(
+                peerId: peerId, peerAvatar: peerAvatar, peerName: peerName)));
   }
 
   void _onSwitchCamera() {

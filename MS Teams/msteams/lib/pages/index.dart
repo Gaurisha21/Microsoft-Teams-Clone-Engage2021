@@ -1,11 +1,8 @@
 import 'dart:async';
-import 'dart:ffi';
-
 import 'package:agora_rtc_engine/rtc_engine.dart';
 import 'package:flutter/material.dart';
 import 'package:msteams/Screens/drawer.dart';
 import 'package:permission_handler/permission_handler.dart';
-
 import './call.dart';
 
 class IndexPage extends StatefulWidget {

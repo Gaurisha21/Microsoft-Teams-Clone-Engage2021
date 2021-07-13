@@ -4,20 +4,20 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'chatVideoCall.dart';
 import 'fullphoto.dart';
 
-class Chat extends StatelessWidget {
+class ChatRoom extends StatelessWidget {
   final String peerId;
   final String peerAvatar;
   final String peerName;
 
-  Chat(
+  ChatRoom(
       {Key? key,
       required this.peerId,
       required this.peerAvatar,
@@ -28,30 +28,13 @@ class Chat extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          elevation: 0.5,
-          title: Text(
-            peerName,
-            maxLines: 1,
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500),
-          ),
-          actions: <Widget>[
-            IconButton(
-              icon: const Icon(
-                Icons.video_call_outlined,
-                color: Colors.black87,
-                size: 25,
-              ),
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => CallPage(
-                            peerId: peerId,
-                            peerAvatar: peerAvatar,
-                            peerName: peerName)));
-              },
-            )
-          ]),
+        elevation: 0.5,
+        title: Text(
+          "Chat Room",
+          maxLines: 1,
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500),
+        ),
+      ),
       body: ChatScreen(
         peerId: peerId,
         peerAvatar: peerAvatar,

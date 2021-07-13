@@ -108,13 +108,13 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     child: Column(
                       children: <Widget>[
                         SizedBox(
-                          height: height * 0.025,
+                          height: height * 0.005,
                         ),
                         Container(
                           child: Image.asset(
                             'images/5.jpeg',
-                            height: height * 0.25,
-                            width: height * 0.25,
+                            height: height * 0.18,
+                            width: height * 0.18,
                           ),
                         ),
                         Container(
@@ -131,8 +131,8 @@ class _HomePageScreenState extends State<HomePageScreen> {
                         Container(
                           child: Image.asset(
                             'images/2.jpeg',
-                            height: height * 0.25,
-                            width: height * 0.25,
+                            height: height * 0.18,
+                            width: height * 0.18,
                           ),
                         ),
                         Container(
@@ -149,8 +149,8 @@ class _HomePageScreenState extends State<HomePageScreen> {
                         Container(
                           child: Image.asset(
                             'images/3.jpeg',
-                            height: height * 0.25,
-                            width: height * 0.25,
+                            height: height * 0.18,
+                            width: height * 0.18,
                           ),
                         ),
                         Container(
@@ -164,6 +164,39 @@ class _HomePageScreenState extends State<HomePageScreen> {
                             ),
                           ),
                         ),
+                        Container(
+                          child: Image.asset(
+                            'images/6.jpeg',
+                            height: height * 0.18,
+                            width: height * 0.18,
+                          ),
+                        ),
+                        Container(
+                          child: Text(
+                            'Jot Down your Notes',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 15,
+                              color: Color.fromRGBO(99, 100, 167, 1),
+                            ),
+                          ),
+                        ),
+                        user == null
+                            ? Container()
+                            : Column(
+                                children: [
+                                  SizedBox(
+                                    height: height * 0.015,
+                                  ),
+                                  Text(
+                                    'Welcome ' + '${user?.displayName}',
+                                    style: TextStyle(
+                                        color: Color.fromRGBO(99, 100, 167, 1),
+                                        fontSize: 20),
+                                  ),
+                                ],
+                              ),
                       ],
                     ),
                   ),
