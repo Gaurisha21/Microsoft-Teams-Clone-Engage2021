@@ -5,7 +5,7 @@ Here is the Link to the [Agora Console](https://dashboard.agora.io/signin/) <br/
 ![](IMAGES/StepsToAddTheToken.png) <br/><br/>
 
 **2. ADD THE TOKEN TO THE APP** <br/><br/>
-Open the [settings.dart](MS Teams/msteams/lib/utils/settings.dart) file and add the app ID.
+Open the settings.dart file in the msteams->lib->utils->settings.dart file and add the app ID.
 
 ```dart
   const APP_ID = "";
