@@ -20,3 +20,17 @@ Open the chatVideoCall.dart file in the msteams->lib->Chat folder and add the ap
   const APP_ID = "";
   const Token = 'YOUR_TOKEN';
 ```
+<br/><br/>
+Run the `packages get` command in your project directory:
+
+```bash
+  # install dependencies
+  flutter pub get
+```
+
+Once the build is complete, run the `run` command to start the app.
+
+```bash
+  # start app
+  flutter run
+```
