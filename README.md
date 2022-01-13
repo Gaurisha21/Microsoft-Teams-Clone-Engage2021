@@ -105,7 +105,7 @@ cd "MS Teams"/msteams
 ```
 #### 2. Generate the Token for the App <br/>
 Go to the [Agora Console](https://dashboard.agora.io/signin/) and follow the following steps<br/>
-<img align="left" src="IMAGES/StepsToAddTheToken.png" alt="Steps to Generate Token" height='1500' width='1000' />
+<img align="left" src="Read Me Images/Token Generation Steps/StepsToAddTheToken.png" alt="Steps to Generate Token" height='1500' width='1000' />
 
 Use the Channel Name to enter the video room in the app.<br/>
 
