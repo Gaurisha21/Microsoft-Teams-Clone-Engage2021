@@ -225,7 +225,7 @@ Once the build is complete, run the `run` command to start the app.
 </p>
 <hr>
 
-<br/>[(Back to top)](#table-of-contents)
+[(Back to top)](#table-of-contents)
 
 ## Support and Contact
 Email To: gaurisharsrivastava@gmail.com
