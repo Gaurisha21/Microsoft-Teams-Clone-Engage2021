@@ -193,7 +193,7 @@ Once the build is complete, run the `run` command to start the app.
 </p>
 <hr>
 
-- <h3>Calender
+- <h3>Calendar
 <p align="left">
     <kbd><img src="Read Me Images/App Screenshot/13.jpg" height='400' width='200'></kbd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <kbd><img src="Read Me Images/App Screenshot/20.jpeg" height='400' width='200'></kbd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
